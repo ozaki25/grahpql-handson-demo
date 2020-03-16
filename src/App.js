@@ -2,12 +2,12 @@ import React from 'react';
 import { ApolloProvider } from '@apollo/client';
 
 import client from './graphql/client';
-import Pokemon from './components/Pokemon';
+import PokemonList from './components/PokemonList';
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Pokemon />
+      <PokemonList />
     </ApolloProvider>
   );
 }

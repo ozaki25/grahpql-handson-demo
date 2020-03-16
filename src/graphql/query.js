@@ -1,12 +1,10 @@
 import { gql } from '@apollo/client';
 
-export const GET_FIRST = gql`
+export const GET_ALL_POKEMON = gql`
   query FirstPokemon {
-    pokemon(name: "フシギダネ") {
+    pokemons(first: 151) {
       number
       name
-      classification
-      types
       image
     }
   }
