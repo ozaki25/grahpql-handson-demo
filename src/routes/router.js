@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import PokemonList from '../components/PokemonList';
+import PokemonDetail from '../components/PokemonDetail';
 
 function Router() {
   return (
@@ -11,6 +12,9 @@ function Router() {
         </Route>
         <Route path="/pokemons" exact>
           <PokemonList />
+        </Route>
+        <Route path="/pokemons/:id" exact>
+          <PokemonDetail />
         </Route>
       </div>
     </BrowserRouter>

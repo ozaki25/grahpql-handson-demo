@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { GET_ALL_POKEMON } from '../graphql/query';
@@ -14,8 +15,9 @@ function PokemonListContainer() {
 }
 
 function PokemonList({ pokemons }) {
+  const history = useHistory();
   return pokemons.map(({ number, name, image }) => (
-    <button onClick={() => alert(name)}>
+    <button onClick={() => history.push(`/pokemons/${number}`)}>
       <p>
         No.{number} {name}
       </p>
