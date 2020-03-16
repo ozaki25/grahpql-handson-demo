@@ -15,12 +15,12 @@ function PokemonListContainer() {
 
 function PokemonList({ pokemons }) {
   return pokemons.map(({ number, name, image }) => (
-    <div>
+    <button onClick={() => alert(name)}>
       <p>
         No.{number} {name}
       </p>
-      <img src={image} alt={name} />
-    </div>
+      <img src={image} alt={name} height="150" />
+    </button>
   ));
 }
 
