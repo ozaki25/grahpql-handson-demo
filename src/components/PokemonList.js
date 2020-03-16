@@ -10,11 +10,11 @@ function PokemonListContainer() {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
-  return <PokemonList pokemonList={data.pokemons} />;
+  return <PokemonList pokemons={data.pokemons} />;
 }
 
-function PokemonList({ pokemonList }) {
-  return pokemonList.map(({ number, name, image }) => (
+function PokemonList({ pokemons }) {
+  return pokemons.map(({ number, name, image }) => (
     <div>
       <p>
         No.{number} {name}
