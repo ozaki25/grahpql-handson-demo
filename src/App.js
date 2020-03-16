@@ -2,12 +2,12 @@ import React from 'react';
 import { ApolloProvider } from '@apollo/client';
 
 import client from './graphql/client';
-import PokemonList from './components/PokemonList';
+import Router from './routes/router';
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <PokemonList />
+      <Router />
     </ApolloProvider>
   );
 }
