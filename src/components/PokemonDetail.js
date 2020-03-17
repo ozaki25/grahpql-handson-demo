@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 
 import { GET_POKEMON_BY_NUMBER } from '../graphql/query';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function PokemonDetailContainer() {
   const { id } = useParams();
@@ -18,14 +18,51 @@ function PokemonDetailContainer() {
 }
 
 function PokemonDetail({ pokemon }) {
-  const { number, name, image } = pokemon;
+  const {
+    number,
+    name,
+    image,
+    classification,
+    types,
+    height,
+    weight,
+    evolutions,
+  } = pokemon;
   return (
-    <>
-      <p>
-        No.{number} {name}
-      </p>
-      <img src={image} alt={name} height="150" />
-    </>
+    <div>
+      <dl>
+        <dt>No.</dt>
+        <dd>{number}</dd>
+        <dt>名前</dt>
+        <dd>{name}</dd>
+        <dt>種別</dt>
+        <dd>{classification}</dd>
+        <dt>タイプ</dt>
+        <dd>{types}</dd>
+        <dt>全長</dt>
+        <dd>
+          {height.minimum}〜{height.maximum}
+        </dd>
+        <dt>重量</dt>
+        <dd>
+          {weight.minimum}〜{weight.maximum}
+        </dd>
+        <dt>進化</dt>
+        <dd>
+          {evolutions
+            ? evolutions.map(poke => (
+                <>
+                  <Link to={`/pokemons/${poke.number}`} key={poke.number}>
+                    {poke.name}
+                  </Link>
+                  <br />
+                </>
+              ))
+            : 'なし'}
+        </dd>
+      </dl>
+      <img src={image} alt={name} height="300" />
+    </div>
   );
 }
 

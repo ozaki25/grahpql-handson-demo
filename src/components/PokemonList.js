@@ -17,7 +17,7 @@ function PokemonListContainer() {
 function PokemonList({ pokemons }) {
   const history = useHistory();
   return pokemons.map(({ number, name, image }) => (
-    <button onClick={() => history.push(`/pokemons/${number}`)}>
+    <button onClick={() => history.push(`/pokemons/${number}`)} key={number}>
       <p>
         No.{number} {name}
       </p>

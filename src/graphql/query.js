@@ -15,6 +15,20 @@ export const GET_POKEMON_BY_NUMBER = gql`
     pokemon(number: $number) {
       number
       name
+      classification
+      types
+      height {
+        minimum
+        maximum
+      }
+      weight {
+        minimum
+        maximum
+      }
+      evolutions {
+        number
+        name
+      }
       image
     }
   }
