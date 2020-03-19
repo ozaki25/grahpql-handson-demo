@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import { GET_ALL_POKEMON } from '../graphql/query';
+import { GET_ALL_POKEMON } from '../graphql/schema';
 
 function PokemonListContainer() {
   const { loading, error, data } = useQuery(GET_ALL_POKEMON);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import { GET_POKEMON_BY_NUMBER } from '../graphql/query';
+import { GET_POKEMON_BY_NUMBER } from '../graphql/schema';
 import { useParams, Link } from 'react-router-dom';
 
 function PokemonDetailContainer() {
