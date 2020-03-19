@@ -16,10 +16,10 @@ function PokemonListContainer() {
 
 function PokemonList({ pokemons }) {
   const history = useHistory();
-  return pokemons.map(({ number, name, image }) => (
-    <button onClick={() => history.push(`/pokemons/${number}`)} key={number}>
+  return pokemons.map(({ id, name, image }) => (
+    <button onClick={() => history.push(`/pokemons/${id}`)} key={id}>
       <p>
-        No.{number} {name}
+        No.{id} {name}
       </p>
       <img src={image} alt={name} height="150" />
     </button>

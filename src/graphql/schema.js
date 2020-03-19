@@ -3,17 +3,17 @@ import { gql } from '@apollo/client';
 export const GET_ALL_POKEMON = gql`
   query Pokemons {
     pokemons(first: 151) {
-      number
+      id
       name
       image
     }
   }
 `;
 
-export const GET_POKEMON_BY_NUMBER = gql`
-  query Pokemon($number: String!) {
-    pokemon(number: $number) {
-      number
+export const GET_POKEMON_BY_ID = gql`
+  query Pokemon($id: String!) {
+    pokemon(id: $id) {
+      id
       name
       classification
       types
@@ -26,7 +26,7 @@ export const GET_POKEMON_BY_NUMBER = gql`
         maximum
       }
       evolutions {
-        number
+        id
         name
       }
       image

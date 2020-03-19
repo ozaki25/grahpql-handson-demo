@@ -1,13 +1,13 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import { GET_POKEMON_BY_NUMBER } from '../graphql/schema';
+import { GET_POKEMON_BY_ID } from '../graphql/schema';
 import { useParams, Link } from 'react-router-dom';
 
 function PokemonDetailContainer() {
   const { id } = useParams();
-  const { loading, error, data } = useQuery(GET_POKEMON_BY_NUMBER, {
-    variables: { number: id },
+  const { loading, error, data } = useQuery(GET_POKEMON_BY_ID, {
+    variables: { id },
   });
   console.log({ loading, error, data });
 
@@ -19,7 +19,7 @@ function PokemonDetailContainer() {
 
 function PokemonDetail({ pokemon }) {
   const {
-    number,
+    id,
     name,
     image,
     classification,
@@ -32,7 +32,7 @@ function PokemonDetail({ pokemon }) {
     <div>
       <dl>
         <dt>No.</dt>
-        <dd>{number}</dd>
+        <dd>{id}</dd>
         <dt>名前</dt>
         <dd>{name}</dd>
         <dt>種別</dt>
@@ -52,7 +52,7 @@ function PokemonDetail({ pokemon }) {
           {evolutions
             ? evolutions.map(poke => (
                 <>
-                  <Link to={`/pokemons/${poke.number}`} key={poke.number}>
+                  <Link to={`/pokemons/${poke.id}`} key={poke.id}>
                     {poke.name}
                   </Link>
                   <br />
